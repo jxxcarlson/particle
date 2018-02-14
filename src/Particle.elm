@@ -41,7 +41,7 @@ type alias Particle =
     }
 
 
-{-| A field assigns to each position vector another vector representing the feild at
+{-| A field assigns to each position vector another vector representing the field at
 that location.
 -}
 type alias Field =
@@ -99,7 +99,7 @@ draw particle =
 
 {-| Given a field and an initial particle, find the particle obtained
 by evolving the initial particle under the influence of the field for
-a time t
+a time `t`.
 -}
 update : Float -> Field -> Particle -> Particle
 update t field particle =
