@@ -15,10 +15,10 @@ module Particle exposing (Particle, Field, constantField, draw, make, orbit, aff
 A `stepper` function is of type `Particle -> Particle`. As an example,
 consider the function
 
-      ss = Particle.update 0.75 force,
+      sf = Particle.update 0.75 force,
 
-where `force` is force vector and 0.75 is an interval of time. Then
-`ss`, which is a partial application of `Particle.update`, is a stepper
+where `force = Vector 0 -5` is force vector and 0.75 is an interval of time. Then
+`sf`, which is a partial application of `Particle.update`, is a stepper
 function.
 
 @docs Particle, Field, constantField, draw, make, orbit, affineTransform, update
@@ -41,7 +41,8 @@ type alias Particle =
     }
 
 
-{-| A field: to each position vector is assigned a field vector.
+{-| A field assigns to each position vector another vector representing the feild at
+that location.
 -}
 type alias Field =
     Vector -> Vector
@@ -69,7 +70,7 @@ make mass position velocity shape =
         { position = position, velocity = velocity, mass = mass, shape = shape_ }
 
 
-{-| Compute [a, f a, f (f a), f (f (f a)), ... ]
+{-| Compute [a, f a, f^2 a, ..., f^n a]
 -}
 orbit : Int -> Stepper -> Particle -> List Particle
 orbit n stepper initiaValue =
@@ -97,7 +98,7 @@ draw particle =
 
 
 {-| Given a field and an initial particle, find the particle obtained
-by evloving the initial particle under the influence of the field for
+by evolving the initial particle under the influence of the field for
 a time t
 -}
 update : Float -> Field -> Particle -> Particle
