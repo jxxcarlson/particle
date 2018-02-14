@@ -113,7 +113,6 @@ update t field particle =
         acceleration =
             mul (1 / particle.mass) (field newPosition)
 
-        -- field newPosition
         newVelocity =
             add (mul t acceleration) particle.velocity
 

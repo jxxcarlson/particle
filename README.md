@@ -45,6 +45,11 @@ is the constant downward force of gravity.  The second
 is a short-range upward force localized in the "floor".
 This force decays exponentially with height.
 
+NOTE: If you look at the simulations, you will see
+that "the angle of reflection is equal to the
+angle of incidence."  This is achieved by solving the 
+equations of motion, not by using ray optics.
+
 NOTE: I need to do some optimization in Demo 2.  The
 simulation slows down as it progresses.  Pull requests
 appreciated!  
