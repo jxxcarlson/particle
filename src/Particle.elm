@@ -21,7 +21,7 @@ where `force` is force vector and 0.75 is an interval of time. Then
 `ss`, which is a partial application of `Particle.update`, is a stepper
 function.
 
-@docs Particle, constantField, draw, make, orbit, affineTransform, update
+@docs Particle, Field, constantField, draw, make, orbit, affineTransform, update
 
 -}
 
